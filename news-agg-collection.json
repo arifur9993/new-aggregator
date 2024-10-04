@@ -1,0 +1,66 @@
+{
+	"info": {
+		"_postman_id": "990afb92-9e45-42cc-881f-4d2bd8d7b750",
+		"name": "News Aggregator",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10069015"
+	},
+	"item": [
+		{
+			"name": "Crawls RSS Feed to DB",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/feed",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"feed"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Filtered News",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/news?page=1&limit=5&sort=pubDate&order=desc&searchText=Union",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"news"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "5"
+						},
+						{
+							"key": "sort",
+							"value": "pubDate"
+						},
+						{
+							"key": "order",
+							"value": "desc"
+						},
+						{
+							"key": "searchText",
+							"value": "Union"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
