@@ -7,60 +7,124 @@
 	},
 	"item": [
 		{
-			"name": "Crawls RSS Feed to DB",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{baseUrl}}/feed",
-					"host": [
-						"{{baseUrl}}"
-					],
-					"path": [
-						"feed"
-					]
+			"name": "Rss-Feed",
+			"item": [
+				{
+					"name": "Crawls RSS Feed to DB",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/feed",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"feed"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Start Schedule",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"schedule\": \"*/5 * * * *\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/feed/schedule-task",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"feed",
+								"schedule-task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Stop Schedule",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"schedule\": \"*/5 * * * *\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/feed/schedule-task",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"feed",
+								"schedule-task"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "Get Filtered News",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{baseUrl}}/news?page=1&limit=5&sort=pubDate&order=desc&searchText=Union",
-					"host": [
-						"{{baseUrl}}"
-					],
-					"path": [
-						"news"
-					],
-					"query": [
-						{
-							"key": "page",
-							"value": "1"
-						},
-						{
-							"key": "limit",
-							"value": "5"
-						},
-						{
-							"key": "sort",
-							"value": "pubDate"
-						},
-						{
-							"key": "order",
-							"value": "desc"
-						},
-						{
-							"key": "searchText",
-							"value": "Union"
+			"name": "News",
+			"item": [
+				{
+					"name": "Get Filtered News",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/news?page=1&limit=5&sort=pubDate&order=desc&searchText=Union",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"news"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "5"
+								},
+								{
+									"key": "sort",
+									"value": "pubDate"
+								},
+								{
+									"key": "order",
+									"value": "desc"
+								},
+								{
+									"key": "searchText",
+									"value": "Union"
+								}
+							]
 						}
-					]
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		}
 	]
 }

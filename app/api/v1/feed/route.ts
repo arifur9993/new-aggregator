@@ -1,11 +1,9 @@
-import "./cron"
 import { fetchWithRetry } from "@/utils/fetch-with-retry"
 import { responseHandler } from "@/utils/response-handler"
 import _ from "lodash"
 import { NewsModel } from "@/models/News"
 import { extractTopics, extractNamedEntities } from "@/utils/openai-extractor"
 import { CONSTANTS } from "@/config/constants"
-import { NextResponse } from "next/server"
 
 export async function GET() {
   let fetchedArticles = []
@@ -31,7 +29,7 @@ export async function GET() {
           return {
             title: item.title,
             description,
-            topics,        
+            topics,
             pubDate: item.pubDate ? new Date(item.pubDate) : new Date(),
             link: item.link,
             source,
